@@ -46,7 +46,7 @@ for i in range(0, dlzka_slova ):
     can.create_text( x_zaciatok + i * (medzera_medzi_obdlznikmi + sirka_obdlznika) + sirka_obdlznika / 2,
                              y_zaciatok + vyska_obdlznika / 2.25,  text=".", fill="blue", font=("Acme 28 "))
 can.pack()
-
+print(main)
 
 i = 0
 
@@ -58,6 +58,7 @@ while i<10 and pocet_neuhadnutych > 0:
             pocet_neuhadnutych -= 1
             can.create_text(x_zaciatok + j * (medzera_medzi_obdlznikmi + sirka_obdlznika) + sirka_obdlznika / 2,
                             y_zaciatok + vyska_obdlznika / 2, text=p, fill="green", font=("Acme 28 "))
+            can.pack()
     i += 1
 
 main.mainloop()
