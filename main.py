@@ -1,3 +1,6 @@
+# https://coderslegacy.com/python/tkinter-key-binding/?fbclid=IwAR0jREXtn2AYeKjqjhFOH7_6hn9PPwmiNoQLnchINuCluLLA6v20ZtI3leI
+
+
 from tkinter import *
 from random import randint
 
