@@ -53,6 +53,7 @@ for i in range(0, dlzka_slova - 1):
 pocet_neuhadnutych = dlzka_slova
 # can.create_window(x_zaciatok, y_zaciatok+2*vyska_obdlznika, window=entry1)
 
+
 for i in range(1, 10):
     p = input("Zadaj pismenko: ")
     # p = entry1.get()
