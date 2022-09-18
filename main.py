@@ -15,9 +15,7 @@ if __name__ == '__main__':
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
-rom
-tkinter
-import Canvas, Tk
+from tkinter import Canvas, Tk
 from random import randint
 
 main = Tk()
