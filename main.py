@@ -1,31 +1,19 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# https://coderslegacy.com/python/tkinter-key-binding/?fbclid=IwAR0jREXtn2AYeKjqjhFOH7_6hn9PPwmiNoQLnchINuCluLLA6v20ZtI3leI
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-
-rom
-tkinter
-import Canvas, Tk
+from tkinter import *
 from random import randint
 
 main = Tk()
 
 main.geometry("1024x768")
-can = Canvas(main, background="#96DED1", width=600, height=600)
+#frame - Frame( main )
+can = Canvas( main, background="#96DED1", width=600, height=600)
+
+
 can.pack()
 can.create_text(300, 75, text="HANGMAN", fill="black", font=("Acme 40 "))
+
 # main.mainloop()
 # can.itemconfig(1, state='normal')
 
@@ -39,38 +27,41 @@ vyska_obdlznika = 100
 medzera_medzi_obdlznikmi = 5
 
 pocet_slov = len(zoznam_slov)
+por_cis_slova = randint(1, pocet_slov)
+zvolene_slovo = zoznam_slov[por_cis_slova - 1]
+dlzka_slova = len(zvolene_slovo)
+pocet_neuhadnutych = dlzka_slova
 
 # program nam vyberie jedno z cisel z intervalu 1 a pocet slov v zozname
-por_cis_slova = randint(1, pocet_slov)
-dlzka_slova = len(zoznam_slov[por_cis_slova - 1])
-
-for i in range(0, dlzka_slova - 1):
-    can.create_rectangle(x_zaciatok + i * (medzera_medzi_obdlznikmi + sirka_obdlznika),
-                         y_zaciatok,
-                         x_zaciatok + i * (medzera_medzi_obdlznikmi + sirka_obdlznika) + sirka_obdlznika,
-                         y_zaciatok + vyska_obdlznika)
-
-pocet_neuhadnutych = dlzka_slova
-# can.create_window(x_zaciatok, y_zaciatok+2*vyska_obdlznika, window=entry1)
-
-for i in range(1, 10):
-    p = input("Zadaj pismenko: ")
-    # p = entry1.get()
-# for j in range (0, dlzka_slova -1):
-# if zoznam_slov[por_cis_slova-1][j]==p:
-# can.create_text( x_zaciatok+j*(medzera_medzi_obdlznikmi+sirka_obdlznika),
-# y_zaciatok,
-# text=p , fill="black")
-# can.create_text( 100, 100, "Skuska" )
 
 
-# can.create_rectangle( 100, 200, 300 ,400 )
 
 print("Pocet slov:", str(pocet_slov))
 print("Zvolene cislo slova:", str(por_cis_slova))
-print("Zvolene slovo je ", zoznam_slov[por_cis_slova - 1])
+print("Zvolene slovo je ", zvolene_slovo)
 print("Dlzka slova je ", str(dlzka_slova))
 
-# s = input( "Zadaj daco hnupe !" )
+for i in range(0, dlzka_slova ):
+    can.create_rectangle(x_zaciatok + i * (medzera_medzi_obdlznikmi + sirka_obdlznika),
+                             y_zaciatok,
+                             x_zaciatok + i * (medzera_medzi_obdlznikmi + sirka_obdlznika) + sirka_obdlznika,
+                             y_zaciatok + vyska_obdlznika)
+    can.create_text( x_zaciatok + i * (medzera_medzi_obdlznikmi + sirka_obdlznika) + sirka_obdlznika / 2,
+                             y_zaciatok + vyska_obdlznika / 2.25,  text=".", fill="blue", font=("Acme 28 "))
+can.pack()
+print(main)
+
+i = 0
+
+while i<10 and pocet_neuhadnutych > 0:
+    p = input("Zadaj pismenko: ")
+    can.pack()
+    for j in range(0, dlzka_slova ):
+        if zvolene_slovo[j] == p:
+            pocet_neuhadnutych -= 1
+            can.create_text(x_zaciatok + j * (medzera_medzi_obdlznikmi + sirka_obdlznika) + sirka_obdlznika / 2,
+                            y_zaciatok + vyska_obdlznika / 2, text=p, fill="green", font=("Acme 28 "))
+            can.pack()
+    i += 1
 
 main.mainloop()
